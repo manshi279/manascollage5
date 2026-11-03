@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Manas College Pithoragarh — Smart Library Management System</title>
+<style>
+:root{--bg:#081225;--panel:#101e35;--panel2:#142641;--line:#263956;--text:#edf4ff;--muted:#94a8c6;--blue:#4e8cff;--cyan:#40d7e8;--green:#32d49a;--amber:#ffbf5b;--red:#ff6b7a;--shadow:0 18px 45px #0003}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0%,#132b4c 0,transparent 35%),var(--bg);color:var(--text);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0} .app{display:flex;min-height:100vh}.sidebar{width:250px;flex-shrink:0;background:#09152a;border-right:1px solid var(--line);padding:24px 15px;display:flex;flex-direction:column;gap:22px}.brand{display:flex;align-items:center;gap:12px;padding:0 9px}.logo{height:42px;width:42px;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;font-size:23px;color:#061326;box-shadow:0 8px 25px #4e8cff44}.brand strong{font-size:17px;letter-spacing:.2px}.brand small{display:block;color:var(--muted);font-size:11px;margin-top:1px}.nav-label{font-size:10px;letter-spacing:1.6px;color:#6f85a7;padding:0 12px;margin-bottom:7px}.nav{display:grid;gap:5px}.nav button{display:flex;align-items:center;gap:12px;width:100%;padding:12px;border-radius:11px;background:transparent;color:#aebed6;text-align:left;transition:.2s}.nav button span{font-size:17px;width:21px;text-align:center}.nav button:hover,.nav button.active{background:linear-gradient(100deg,#244b82,#183354);color:white}.nav button.active{box-shadow:inset 3px 0 var(--cyan)}.side-bottom{margin-top:auto;border:1px solid var(--line);border-radius:14px;padding:13px;background:#0e1c31}.side-bottom b{font-size:12px}.side-bottom p{font-size:11px;color:var(--muted);margin:5px 0 0}.main{flex:1;min-width:0;padding:27px clamp(16px,3vw,38px) 40px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.eyebrow{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--cyan);font-weight:700}.topbar h1{margin:5px 0 0;font-size:clamp(23px,3vw,31px);letter-spacing:-.8px}.top-actions{display:flex;gap:10px;align-items:center}.today{color:var(--muted);font-size:12px;text-align:right}.btn{padding:10px 14px;border-radius:10px;background:#1c3150;color:var(--text);border:1px solid #2a4265;font-weight:650}.btn:hover{filter:brightness(1.15)}.btn.primary{background:linear-gradient(135deg,#4e8cff,#3570e6);border-color:transparent;box-shadow:0 8px 20px #3779ee33}.btn.success{background:#123b38;border-color:#216d60;color:#81f0c6}.btn.danger{background:#3c202e;border-color:#6d3447;color:#ffabb4}.btn.small{padding:6px 9px;font-size:12px}.grid{display:grid;gap:16px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:18px}.stat,.panel{background:linear-gradient(145deg,#12223b,#0f1c31);border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow)}.stat{padding:19px;position:relative;overflow:hidden}.stat:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;background:var(--glow,#4e8cff);opacity:.08;right:-24px;top:-26px}.stat-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}.stat-icon{width:34px;height:34px;border-radius:11px;background:#1c3454;display:grid;place-items:center;font-size:17px}.stat h2{font-size:29px;margin:13px 0 2px;letter-spacing:-1px}.stat p{font-size:11px;color:var(--muted);margin:0}.two-col{grid-template-columns:1.4fr 1fr;margin-bottom:18px}.panel{padding:20px;min-width:0}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:17px}.panel-head h2{font-size:15px;margin:0}.sub{font-size:11px;color:var(--muted);margin-top:3px}.bars{height:165px;display:flex;align-items:end;gap:clamp(9px,2vw,22px);padding:10px 4px 0;border-bottom:1px solid var(--line)}.bar-col{height:100%;flex:1;display:flex;flex-direction:column;justify-content:end;align-items:center;gap:8px;min-width:0}.bar{width:min(34px,70%);border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,var(--cyan),var(--blue));min-height:3px;transition:height .3s}.bar-label{font-size:10px;color:var(--muted)}.legend{display:flex;gap:16px;margin-top:13px;color:var(--muted);font-size:11px}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cyan);margin-right:6px}.ring-wrap{display:flex;align-items:center;gap:23px;padding:8px 0}.ring{width:128px;height:128px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;background:conic-gradient(var(--cyan) var(--pct,0%),#233550 0)}.ring:before{content:"";position:absolute;width:91px;height:91px;border-radius:50%;background:#112039}.ring-inner{position:relative;text-align:center;z-index:1}.ring-inner strong{font-size:23px;display:block}.ring-inner small{font-size:10px;color:var(--muted)}.legend-list{display:grid;gap:12px;flex:1}.legend-row{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:12px}.legend-row b{color:var(--text)}.table-panel{padding:0;overflow:hidden}.table-head{padding:19px 20px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px}.table-wrap{overflow:auto}table{border-collapse:collapse;width:100%;white-space:nowrap}th,td{text-align:left;padding:13px 18px;border-top:1px solid #22344f;font-size:12px}th{color:#8096b7;font-weight:600;background:#0e1a2d}td{color:#d7e3f5}tbody tr:hover{background:#172944}.pill{display:inline-flex;align-items:center;gap:5px;border-radius:30px;padding:4px 8px;font-size:10px;font-weight:700}.pill.green{background:#153d37;color:#74e5bd}.pill.amber{background:#44351e;color:#ffd17b}.pill.red{background:#45222e;color:#ff9eac}.pill.blue{background:#1d3558;color:#9dc3ff}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:17px}.search{position:relative;flex:1;min-width:180px}.search input{padding-left:37px}.search:before{content:"⌕";position:absolute;left:13px;top:6px;color:var(--muted);font-size:22px}.field,input,select,textarea{width:100%;background:#0a172a;color:var(--text);border:1px solid #2b405e;border-radius:9px;padding:10px 11px;outline:none}.field:focus,input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #4e8cff20}label{display:block;color:#a8bad3;font-size:11px;margin-bottom:6px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.form-grid .full{grid-column:1/-1}.modal-backdrop{position:fixed;inset:0;background:#020814bb;backdrop-filter:blur(7px);z-index:10;display:none;align-items:center;justify-content:center;padding:16px}.modal-backdrop.show{display:flex}.modal{width:min(620px,100%);max-height:90vh;overflow:auto;background:#101e34;border:1px solid #314867;border-radius:18px;padding:23px;box-shadow:0 30px 80px #0008}.modal h2{margin:0 0 5px;font-size:20px}.modal .sub{margin-bottom:20px}.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:20px}.section{display:none}.section.active{display:block}.empty{text-align:center;padding:35px;color:var(--muted)}.empty b{display:block;color:var(--text);margin-bottom:5px}.toast{position:fixed;right:20px;bottom:20px;z-index:20;padding:13px 17px;border:1px solid #365276;background:#152943;border-radius:12px;box-shadow:var(--shadow);display:none;max-width:min(360px,90vw)}.toast.show{display:block;animation:up .2s ease}.muted{color:var(--muted)}.actions{display:flex;gap:6px}.student-cell{display:flex;align-items:center;gap:9px}.avatar{width:29px;height:29px;border-radius:9px;background:#203d62;display:grid;place-items:center;font-weight:800;color:#9dc4ff}.page-note{border:1px solid #294568;background:#112742;border-radius:12px;padding:13px 15px;color:#adc4e5;font-size:12px;margin-bottom:16px}.report-cards{grid-template-columns:repeat(3,minmax(0,1fr))}.id-card{width:340px;max-width:100%;padding:18px;border-radius:15px;background:linear-gradient(135deg,#0d2341,#1c4c7c);border:1px solid #5a8ec2;color:white;position:relative;overflow:hidden}.id-card:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;border:24px solid #ffffff0c;right:-45px;bottom:-65px}.id-head{display:flex;align-items:center;gap:9px;border-bottom:1px solid #ffffff33;padding-bottom:12px}.id-emblem{width:35px;height:35px;border-radius:10px;background:#d8f7ff;color:#0c2c4b;display:grid;place-items:center;font-weight:900}.id-head small{display:block;color:#c5d8ed;font-size:9px;letter-spacing:1px}.id-body{display:flex;gap:13px;align-items:center;padding:17px 0}.id-photo{width:74px;height:87px;border-radius:8px;background:#d4e4f5;color:#264769;display:grid;place-items:center;font-size:24px;overflow:hidden}.id-photo img{width:100%;height:100%;object-fit:cover}.id-info h3{margin:0 0 4px;font-size:17px}.id-info p{margin:3px 0;color:#d4e3f4;font-size:10px}.id-footer{border-top:1px solid #ffffff33;padding-top:10px;display:flex;justify-content:space-between;font-size:9px;color:#d1e2f4}.hidden{display:none!important}
+@keyframes up{from{transform:translateY(8px);opacity:0}to{transform:translateY(0);opacity:1}}
+@media(max-width:1000px){.sidebar{width:215px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.two-col{grid-template-columns:1fr}}
+@media(max-width:700px){.app{display:block}.sidebar{width:100%;padding:13px;gap:13px;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:0 4px}.nav{display:flex;overflow:auto;gap:5px}.nav-label,.side-bottom{display:none}.nav button{width:auto;white-space:nowrap;padding:9px 11px;font-size:12px}.nav button span{font-size:15px;width:auto}.main{padding:20px 13px 30px}.topbar{align-items:flex-start}.today{display:none}.top-actions .btn{padding:9px;font-size:12px}.stats{gap:10px}.stat{padding:14px}.stat h2{font-size:25px}.stat-top{font-size:10px}.stat-icon{width:29px;height:29px}.panel{padding:15px}.table-head{padding:15px}.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:auto}.report-cards{grid-template-columns:1fr}.ring-wrap{gap:14px}.ring{width:110px;height:110px}.ring:before{width:78px;height:78px}}
+@media print{body{background:white;color:#111}.sidebar,.topbar,.no-print,.modal-backdrop,.toast{display:none!important}.main{padding:0}.app{display:block}.id-card{print-color-adjust:exact;-webkit-print-color-adjust:exact}.print-only{display:block!important}}
+
+/* Updated light theme */
+:root{--bg:#f2f6fc;--panel:#ffffff;--panel2:#f7faff;--line:#dce5f1;--text:#182b45;--muted:#657994;--blue:#2459a9;--cyan:#4f8edc;--green:#16845f;--amber:#a96808;--red:#c43f51;--shadow:0 14px 35px #19385b12}
+body{background:linear-gradient(135deg,#f5f8fd,#eaf1fa);color:var(--text)}
+.sidebar{background:#ffffff;border-right:1px solid #dce5f1}
+.brand strong{color:#173a70}.brand small{color:#70829a}
+.nav button{color:#526984}.nav button:hover,.nav button.active{background:#eaf2ff;color:#194b91}
+.nav-label{color:#8495ac}.side-bottom{color:#536984}
+.panel,.stat,.modal{background:#fff;border-color:#dce5f1;box-shadow:var(--shadow)}
+.panel-head,.table-head{border-color:#e3eaf4}
+table th{background:#f3f7fc;color:#637791}
+table td{border-color:#e8eef6}
+input,select,textarea{background:#fff;color:#182b45;border-color:#d5e0ee}
+input:focus,select:focus,textarea:focus{border-color:#5b8fd6;box-shadow:0 0 0 3px #5b8fd61a}
+.btn{background:#edf3fb;color:#284b78;border:1px solid #d7e2f0}
+.btn.primary{background:#2459a9;color:#fff;border-color:#2459a9}
+.btn.danger{background:#fff0f1;color:#b02d42;border-color:#f3d0d5}
+.pill.blue{background:#eaf2ff;color:#2459a9}
+.stat p,.sub,.eyebrow{color:#71839b}
+.modal-backdrop{z-index:1000}
+#authScreen{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#eaf2ff,#f8fbff 55%,#dce9fb);display:grid;place-items:center;padding:20px}
+.auth-card{width:min(430px,100%);background:#fff;border:1px solid #dce5f1;border-radius:22px;padding:30px;box-shadow:0 24px 70px #173a7020}
+.auth-brand{display:flex;align-items:center;gap:12px;margin-bottom:24px}.auth-brand .logo{flex:none}
+.auth-card h2{margin:0 0 6px;color:#173a70}.auth-card p{color:#6c7f98;margin:0 0 22px}
+.auth-card label{display:block;font-weight:650;margin:13px 0 6px}.auth-card input{width:100%;padding:12px;border:1px solid #d5e0ee;border-radius:10px}
+.auth-card .btn{width:100%;margin-top:18px;padding:12px}
+.auth-error{color:#b02d42;font-size:13px;min-height:18px;margin-top:10px}
+@media(max-width:700px){.sidebar{background:#fff}}
+
+</style>
+</head>
+<body>
+<div id="authScreen">
+  <div class="auth-card">
+    <div class="auth-brand"><div class="logo">▤</div><div><strong>Manas College Pithoragarh</strong><small style="display:block;color:#70829a;font-size:11px">SMART LIBRARY MANAGEMENT</small></div></div>
+    <h2 id="authTitle">Set your password</h2>
+    <p id="authSubtitle">Create a password for this browser before using the library system.</p>
+    <form id="authForm">
+      <label for="authPassword">Password</label><input id="authPassword" type="password" minlength="6" autocomplete="current-password" required placeholder="Enter your password">
+      <div id="confirmPasswordWrap"><label for="authConfirm">Confirm password</label><input id="authConfirm" type="password" minlength="6" autocomplete="new-password" placeholder="Re-enter password"></div>
+      <button class="btn primary" type="submit" id="authSubmit">Set Password & Continue</button>
+      <div class="auth-error" id="authError"></div>
+    </form>
+    <div style="margin-top:18px;text-align:center;color:#7b8ba0;font-size:11px">Powered by Manshi Joshi</div>
+  </div>
+</div>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">▤</div><div><strong>Manas College</strong><small>PITHORAGARH LIBRARY</small></div></div>
+  <div><div class="nav-label">WORKSPACE</div><nav class="nav" id="nav">
+    <button class="active" data-page="dashboard"><span>◫</span> Dashboard</button>
+    <button data-page="students"><span>♙</span> Students & ID Cards</button>
+    <button data-page="books"><span>▤</span> Book Inventory</button>
+    <button data-page="circulation"><span>⇄</span> Issue / Return</button>
+    <button data-page="history"><span>◷</span> Issue History</button>
+    <button data-page="reports"><span>▥</span> Reports</button>
+  </nav></div>
+  <div class="side-bottom"><b>☁ Data & Backup</b><p id="connectionText">Manas College Pithoragarh · Powered by Manshi Joshi</p></div>
+</aside>
+<main class="main">
+  <header class="topbar"><div><div class="eyebrow" id="pageEyebrow">LIBRARY OVERVIEW</div><h1 id="pageTitle">Good day, Librarian</h1></div><div class="top-actions"><div class="today" id="todayText"></div><button class="btn" id="importDataBtn">Import Data</button><button class="btn" id="exportDataBtn">Export Data</button><button class="btn" id="changePasswordBtn">Change Password</button><button class="btn" id="logoutBtn">Log out</button><button class="btn primary" id="quickAdd">＋ Add New Book</button><input type="file" id="importDataFile" accept=".json,application/json" class="hidden"></div></header>
+
+  <section class="section active" id="page-dashboard">
+    <div class="grid stats">
+      <div class="stat" style="--glow:#4e8cff"><div class="stat-top">Total Students <span class="stat-icon">♙</span></div><h2 id="statStudents">0</h2><p>Registered library members</p></div>
+      <div class="stat" style="--glow:#40d7e8"><div class="stat-top">Total Book Copies <span class="stat-icon">▤</span></div><h2 id="statBooks">0</h2><p id="uniqueBooks">Across all titles</p></div>
+      <div class="stat" style="--glow:#32d49a"><div class="stat-top">Available Copies <span class="stat-icon">✓</span></div><h2 id="statAvailable">0</h2><p>Ready to issue</p></div>
+      <div class="stat" style="--glow:#ffbf5b"><div class="stat-top">Overdue Books <span class="stat-icon">◷</span></div><h2 id="statOverdue">0</h2><p>Need follow-up</p></div>
+    </div>
+    <div class="grid two-col">
+      <div class="panel"><div class="panel-head"><div><h2>Circulation Activity</h2><div class="sub">Issues and returns · last 7 days</div></div><span class="pill blue">LIVE DATA</span></div><div class="bars" id="activityBars"></div><div class="legend"><span><i class="dot"></i>Issued / Returned activity</span></div></div>
+      <div class="panel"><div class="panel-head"><div><h2>Book Availability</h2><div class="sub">Current stock distribution</div></div></div><div class="ring-wrap"><div class="ring" id="availabilityRing"><div class="ring-inner"><strong id="ringPct">0%</strong><small>available</small></div></div><div class="legend-list"><div class="legend-row"><span><i class="dot"></i>Available copies</span><b id="legendAvailable">0</b></div><div class="legend-row"><span><i class="dot" style="background:#50617c"></i>Issued copies</span><b id="legendIssued">0</b></div><div class="legend-row"><span>Titles in catalogue</span><b id="legendTitles">0</b></div></div></div></div>
+    </div>
+    <div class="panel table-panel"><div class="table-head"><div><h2>Recent Circulation</h2><div class="sub">Latest issue and return transactions</div></div><button class="btn small" onclick="showPage('history')">View history →</button></div><div class="table-wrap"><table><thead><tr><th>STUDENT</th><th>BOOK</th><th>ISSUE DATE</th><th>DUE DATE</th><th>STATUS</th></tr></thead><tbody id="recentRows"></tbody></table></div></div>
+  </section>
+
+  <section class="section" id="page-students">
+    <div class="page-note">Register students, keep their department and course records, and print a student library ID card.</div>
+    <div class="toolbar"><div class="search"><input id="studentSearch" placeholder="Search student name, ID, course or department…"></div><button class="btn primary" id="addStudentBtn">＋ Register Student</button></div>
+    <div class="panel table-panel"><div class="table-wrap"><table><thead><tr><th>STUDENT</th><th>STUDENT ID</th><th>DEPARTMENT</th><th>COURSE / SEMESTER</th><th>ACTIONS</th></tr></thead><tbody id="studentRows"></tbody></table></div></div>
+  </section>
+
+  <section class="section" id="page-books">
+    <div class="toolbar"><div class="search"><input id="bookSearch" placeholder="Search title, author, ISBN or Book ID…"></div><select id="deptFilter" style="max-width:210px"><option value="">All departments</option></select><button class="btn primary" id="addBookBtn">＋ Add New Book</button></div>
+    <div class="panel table-panel"><div class="table-head"><div><h2>Book Catalogue</h2><div class="sub">Track book titles, authors, departments and available stock</div></div><span class="pill blue" id="bookCountPill">0 titles</span></div><div class="table-wrap"><table><thead><tr><th>BOOK</th><th>AUTHOR / PUBLISHER</th><th>DEPARTMENT</th><th>ISBN</th><th>TOTAL</th><th>AVAILABLE</th><th>ACTIONS</th></tr></thead><tbody id="bookRows"></tbody></table></div></div>
+  </section>
+
+  <section class="section" id="page-circulation">
+    <div class="grid two-col">
+      <div class="panel"><div class="panel-head"><div><h2>Issue a Book</h2><div class="sub">Assign an available book to a registered student</div></div><span class="stat-icon">↗</span></div>
+        <form id="issueForm"><div class="form-grid">
+          <div class="full"><label>Student *</label><select id="issueStudent" required><option value="">Select student</option></select></div>
+          <div class="full"><label>Book *</label><select id="issueBook" required><option value="">Select available book</option></select></div>
+          <div><label>Issue Date *</label><input type="date" id="issueDate" required></div>
+          <div><label>Due Date *</label><input type="date" id="dueDate" required></div>
+          <div class="full"><label>Issued By / Librarian</label><input id="issuedBy" placeholder="Librarian name"></div>
+        </div><div class="modal-actions"><button class="btn primary" type="submit">Confirm Issue →</button></div></form>
+      </div>
+      <div class="panel"><div class="panel-head"><div><h2>Return a Book</h2><div class="sub">Close an active issue and update stock</div></div><span class="stat-icon">↙</span></div>
+        <form id="returnForm"><div class="form-grid">
+          <div class="full"><label>Active Issue *</label><select id="returnTxn" required><option value="">Select issued book</option></select></div>
+          <div><label>Actual Return Date *</label><input type="date" id="actualReturnDate" required></div>
+          <div><label>Fine per late day (₹)</label><input type="number" id="fineRate" min="0" value="10" required></div>
+          <div class="full"><div class="page-note" id="finePreview">Select an active issue to preview late fine.</div></div>
+        </div><div class="modal-actions"><button class="btn success" type="submit">Record Return ✓</button></div></form>
+      </div>
+    </div>
+    <div class="panel table-panel"><div class="table-head"><div><h2>Currently Issued</h2><div class="sub">Outstanding loans and due dates</div></div></div><div class="table-wrap"><table><thead><tr><th>STUDENT</th><th>BOOK</th><th>ISSUE DATE</th><th>DUE DATE</th><th>OVERDUE DAYS</th><th>STATUS</th></tr></thead><tbody id="activeRows"></tbody></table></div></div>
+  </section>
+
+  <section class="section" id="page-history">
+    <div class="toolbar"><div class="search"><input id="historySearch" placeholder="Search student, book, transaction ID…"></div><select id="historyStatus" style="max-width:170px"><option value="">All statuses</option><option>Issued</option><option>Returned</option><option>Overdue</option></select><button class="btn" id="exportHistory">Export CSV ↓</button></div>
+    <div class="panel table-panel"><div class="table-head"><div><h2>Issue & Return History</h2><div class="sub">Every transaction, due date and fine record</div></div></div><div class="table-wrap"><table><thead><tr><th>TRANSACTION</th><th>STUDENT</th><th>BOOK / AUTHOR</th><th>ISSUE DATE</th><th>DUE DATE</th><th>RETURN DATE</th><th>FINE</th><th>STATUS</th></tr></thead><tbody id="historyRows"></tbody></table></div></div>
+  </section>
+
+  <section class="section" id="page-reports">
+    <div class="toolbar"><select id="reportDept" style="max-width:240px"><option value="">All departments</option></select><button class="btn" id="exportReport">Export report CSV ↓</button><button class="btn" onclick="window.print()">Print current report</button></div>
+    <div class="grid report-cards">
+      <div class="stat"><div class="stat-top">Catalogue Titles <span class="stat-icon">▤</span></div><h2 id="repTitles">0</h2><p>Distinct book records</p></div>
+      <div class="stat"><div class="stat-top">Total Fine Recorded <span class="stat-icon">₹</span></div><h2 id="repFine">₹0</h2><p>From completed returns</p></div>
+      <div class="stat"><div class="stat-top">Active Issues <span class="stat-icon">⇄</span></div><h2 id="repActive">0</h2><p>Books currently with students</p></div>
+    </div>
+    <div class="panel table-panel" style="margin-top:18px"><div class="table-head"><div><h2>Department-wise Stock</h2><div class="sub">Total copies, available copies and active issues</div></div></div><div class="table-wrap"><table><thead><tr><th>DEPARTMENT</th><th>TITLES</th><th>TOTAL COPIES</th><th>AVAILABLE</th><th>ISSUED</th></tr></thead><tbody id="departmentRows"></tbody></table></div></div>
+  </section>
+<footer style="text-align:center;padding:18px;color:var(--muted);font-size:12px">Manas College Pithoragarh · Powered by Manshi Joshi</footer>
+</main></div>
+
+<div class="modal-backdrop" id="modalBackdrop"><div class="modal"><h2 id="modalTitle">Add record</h2><div class="sub" id="modalSub"></div><form id="modalForm"><div id="modalFields" class="form-grid"></div><div class="modal-actions"><button class="btn" type="button" id="modalCancel">Cancel</button><button class="btn primary" type="submit" id="modalSave">Save record</button></div></form></div></div>
+<div class="modal-backdrop" id="idBackdrop"><div class="modal"><div class="panel-head"><div><h2>Student Library ID Card</h2><div class="sub">Print this card for the selected student</div></div><button class="btn small" id="idClose">✕</button></div><div id="idCardHolder" style="display:flex;justify-content:center;padding:10px"></div><div class="modal-actions"><button class="btn" id="idClose2">Close</button><button class="btn primary" id="printId">Print ID Card</button></div></div></div>
+<div class="toast" id="toast"></div>
+<script>
+/* LibraCore: GitHub Pages frontend. Set API_URL to the deployed Google Apps Script web-app URL. */
+const API_URL = ""; // Example: https://script.google.com/macros/s/DEPLOYMENT_ID/exec
+const STORE_KEY = "libracore_college_library_v1";
+const $ = id => document.getElementById(id);
+const todayISO = () => {const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+const addDays = (iso,n) => {let d=new Date((iso||todayISO())+"T12:00:00");d.setDate(d.getDate()+n);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const money = n => "₹"+Number(n||0).toLocaleString("en-IN");
+const fmtDate = s => s ? new Date(s+"T12:00:00").toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"}) : "—";
+const id = prefix => prefix+"-"+Date.now().toString(36).toUpperCase()+"-"+Math.random().toString(36).slice(2,5).toUpperCase();
+const blankData = () => ({students:[],books:[],transactions:[]});
+let data = loadLocal(), currentModalSave = null, idStudent = null;
+function loadLocal(){try{return JSON.parse(localStorage.getItem(STORE_KEY))||blankData()}catch{return blankData()}}
+function persist(){localStorage.setItem(STORE_KEY,JSON.stringify(data));renderAll()}
+function notify(msg){$("toast").textContent=msg;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),3000)}
+function studentBy(id){return data.students.find(x=>x.id===id)}
+function bookBy(id){return data.books.find(x=>x.id===id)}
+function txnStatus(t){if(t.returnDate)return "Returned";return t.dueDate<todayISO()?"Overdue":"Issued"}
+function activeTxns(){return data.transactions.filter(t=>!t.returnDate)}
+function activeCount(bookId){return activeTxns().filter(t=>t.bookId===bookId).length}
+function available(book){return Math.max(0,Number(book.quantity||0)-activeCount(book.id))}
+function overdueDays(t, onDate=todayISO()){const end=t.returnDate||onDate;return Math.max(0,Math.floor((new Date(end+"T12:00:00")-new Date(t.dueDate+"T12:00:00"))/86400000))}
+function transactionFine(t){return Number(t.fine||0)}
+function showPage(page){document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));$("page-"+page).classList.add("active");document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));const titles={dashboard:["LIBRARY OVERVIEW","Good day, Librarian"],students:["MEMBER DIRECTORY","Students & ID Cards"],books:["CATALOGUE MANAGEMENT","Book Inventory"],circulation:["CIRCULATION DESK","Issue & Return"],history:["TRANSACTION REGISTER","Issue History"],reports:["ANALYTICS & REPORTS","Library Reports"]};$("pageEyebrow").textContent=titles[page][0];$("pageTitle").textContent=titles[page][1];$("quickAdd").classList.toggle("hidden",page!=="dashboard"&&page!=="books");}
+$("nav").addEventListener("click",e=>{const b=e.target.closest("button[data-page]");if(b)showPage(b.dataset.page)});
+$("todayText").textContent=new Date().toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short",year:"numeric"});
+function emptyRow(cols,msg="No records found"){return `<tr><td colspan="${cols}"><div class="empty"><b>${msg}</b>Try adding a record or changing your search.</div></td></tr>`}
+function renderAll(){renderDashboard();renderStudents();renderBooks();renderSelectors();renderCirculation();renderHistory();renderReports()}
+function renderDashboard(){
+ const copies=data.books.reduce((s,b)=>s+Number(b.quantity||0),0),avail=data.books.reduce((s,b)=>s+available(b),0),over=activeTxns().filter(t=>txnStatus(t)==="Overdue").length;
+ $("statStudents").textContent=data.students.length;$("statBooks").textContent=copies;$("uniqueBooks").textContent=`${data.books.length} unique titles`; $("statAvailable").textContent=avail;$("statOverdue").textContent=over;
+ $("legendAvailable").textContent=avail;$("legendIssued").textContent=copies-avail;$("legendTitles").textContent=data.books.length;
+ const pct=copies?Math.round(avail/copies*100):0;$("availabilityRing").style.setProperty("--pct",pct+"%");$("ringPct").textContent=pct+"%";
+ const days=[];for(let i=6;i>=0;i--){let d=addDays(todayISO(),-i);days.push({date:d,label:new Date(d+"T12:00:00").toLocaleDateString("en",{weekday:"short"}),count:data.transactions.filter(t=>t.issueDate===d||t.returnDate===d).length})}
+ const max=Math.max(1,...days.map(d=>d.count));$("activityBars").innerHTML=days.map(d=>`<div class="bar-col"><div class="bar" title="${d.count} activities" style="height:${Math.max(3,d.count/max*100)}%"></div><span class="bar-label">${d.label}</span></div>`).join("");
+ const recent=[...data.transactions].sort((a,b)=>(b.issueDate||"").localeCompare(a.issueDate||"")).slice(0,6);
+ $("recentRows").innerHTML=recent.length?recent.map(t=>{let s=studentBy(t.studentId),b=bookBy(t.bookId),st=txnStatus(t);return `<tr><td>${esc(s?.name||"Deleted student")}<div class="sub">${esc(s?.studentId||"")}</div></td><td>${esc(b?.title||"Deleted book")}</td><td>${fmtDate(t.issueDate)}</td><td>${fmtDate(t.dueDate)}</td><td>${statusPill(st)}</td></tr>`}).join(""):emptyRow(5,"No circulation activity yet");
+}
+function statusPill(st){return `<span class="pill ${st==="Returned"?"green":st==="Overdue"?"red":"amber"}">${esc(st)}</span>`}
+function renderStudents(){
+ const q=($("studentSearch").value||"").toLowerCase();
+ const rows=data.students.filter(s=>[s.name,s.studentId,s.department,s.course,s.year,s.email].join(" ").toLowerCase().includes(q));
+ $("studentRows").innerHTML=rows.length?rows.map(s=>`<tr><td><div class="student-cell"><div class="avatar">${esc((s.name||"?").slice(0,1).toUpperCase())}</div><div>${esc(s.name)}<div class="sub">${esc(s.email||"")}</div></div></div></td><td>${esc(s.studentId)}</td><td>${esc(s.department||"—")}</td><td>${esc(s.course||"—")}<div class="sub">${esc(s.year?`Semester ${s.year}`:"")}</div></td><td><div class="actions"><button class="btn small" onclick="showId('${s.id}')">ID Card</button><button class="btn small" onclick="editStudent('${s.id}')">Edit</button><button class="btn small danger" onclick="deleteStudent('${s.id}')">Delete</button></div></td></tr>`).join(""):emptyRow(5,"No students registered");
+}
+function renderBooks(){
+ const q=($("bookSearch").value||"").toLowerCase(),dept=$("deptFilter").value;
+ const rows=data.books.filter(b=>(!dept||b.department===dept)&&[b.title,b.author,b.isbn,b.id,b.publisher,b.department,b.category,b.accessionNo,b.semester].join(" ").toLowerCase().includes(q));
+ $("bookCountPill").textContent=`${rows.length} titles`;
+ $("bookRows").innerHTML=rows.length?rows.map(b=>{let av=available(b);return `<tr><td><b>${esc(b.title)}</b><div class="sub">Acc. No.: ${esc(b.accessionNo||"—")} · ${esc(b.category||"General")}</div></td><td>${esc(b.author||"—")}<div class="sub">${esc(b.publisher||"")}</div></td><td>${esc(b.department||"General")}<div class="sub">${b.semester?`Semester ${esc(b.semester)}`:""}</div></td><td>${esc(b.isbn||"—")}</td><td>${Number(b.quantity||0)}</td><td><span class="pill ${av>0?"green":"red"}">${av} available</span></td><td><div class="actions"><button class="btn small" onclick="editBook('${b.id}')">Edit</button><button class="btn small danger" onclick="deleteBook('${b.id}')">Delete</button></div></td></tr>`}).join(""):emptyRow(7,"No books found");
+}
+function renderSelectors(){
+ const depts=[...new Set([...data.books.map(b=>b.department),...data.students.map(s=>s.department)].filter(Boolean))].sort();
+ const setOpts=(el,first,items,selected)=>{const prev=selected??el.value;el.innerHTML=`<option value="">${first}</option>`+items.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join("");el.value=items.includes(prev)?prev:""};
+ setOpts($("deptFilter"),"All departments",depts);setOpts($("reportDept"),"All departments",depts);
+ $("issueStudent").innerHTML='<option value="">Select student</option>'+data.students.map(s=>`<option value="${s.id}">${esc(s.name)} · ${esc(s.studentId)}</option>`).join("");
+ $("issueBook").innerHTML='<option value="">Select available book</option>'+data.books.filter(b=>available(b)>0).map(b=>`<option value="${b.id}">${esc(b.title)} — ${available(b)} available</option>`).join("");
+ const act=activeTxns();$("returnTxn").innerHTML='<option value="">Select issued book</option>'+act.map(t=>{let s=studentBy(t.studentId),b=bookBy(t.bookId);return `<option value="${t.id}">${esc(s?.name||"Student")} · ${esc(b?.title||"Book")} · due ${fmtDate(t.dueDate)}</option>`}).join("");
+}
+function renderCirculation(){
+ const rows=activeTxns().sort((a,b)=>a.dueDate.localeCompare(b.dueDate));
+ $("activeRows").innerHTML=rows.length?rows.map(t=>{let s=studentBy(t.studentId),b=bookBy(t.bookId),od=overdueDays(t);return `<tr><td>${esc(s?.name||"Deleted student")}<div class="sub">${esc(s?.studentId||"")}</div></td><td>${esc(b?.title||"Deleted book")}<div class="sub">${esc(b?.author||"")}</div></td><td>${fmtDate(t.issueDate)}</td><td>${fmtDate(t.dueDate)}</td><td>${od?`<span class="pill red">${od} days</span>`:"—"}</td><td>${statusPill(txnStatus(t))}</td></tr>`}).join(""):emptyRow(6,"No active issues");
+}
+function renderHistory(){
+ const q=($("historySearch").value||"").toLowerCase(),status=$("historyStatus").value;
+ const rows=[...data.transactions].filter(t=>{let s=studentBy(t.studentId),b=bookBy(t.bookId);return (!status||txnStatus(t)===status)&&[t.id,s?.name,s?.studentId,b?.title,b?.author,t.issuedBy].join(" ").toLowerCase().includes(q)}).sort((a,b)=>(b.issueDate||"").localeCompare(a.issueDate||""));
+ $("historyRows").innerHTML=rows.length?rows.map(t=>{let s=studentBy(t.studentId),b=bookBy(t.bookId);return `<tr><td>${esc(t.id)}</td><td>${esc(s?.name||"Deleted student")}<div class="sub">${esc(s?.studentId||"")}</div></td><td>${esc(b?.title||"Deleted book")}<div class="sub">${esc(b?.author||"")}</div></td><td>${fmtDate(t.issueDate)}</td><td>${fmtDate(t.dueDate)}</td><td>${fmtDate(t.returnDate)}</td><td>${money(t.fine)}</td><td>${statusPill(txnStatus(t))}</td></tr>`}).join(""):emptyRow(8,"No transactions found");
+}
+function renderReports(){
+ const dept=$("reportDept").value;const books=data.books.filter(b=>!dept||b.department===dept);
+ $("repTitles").textContent=books.length;$("repFine").textContent=money(data.transactions.reduce((s,t)=>s+transactionFine(t),0));$("repActive").textContent=activeTxns().filter(t=>!dept||bookBy(t.bookId)?.department===dept).length;
+ const depts=[...new Set(data.books.map(b=>b.department||"General"))].sort();
+ const rows=depts.filter(d=>!dept||d===dept).map(d=>{const bs=data.books.filter(b=>(b.department||"General")===d),total=bs.reduce((s,b)=>s+Number(b.quantity||0),0),av=bs.reduce((s,b)=>s+available(b),0);return {d,bs,total,av}});
+ $("departmentRows").innerHTML=rows.length?rows.map(r=>`<tr><td><b>${esc(r.d)}</b></td><td>${r.bs.length}</td><td>${r.total}</td><td><span class="pill green">${r.av}</span></td><td>${r.total-r.av}</td></tr>`).join(""):emptyRow(5,"No department data");
+}
+const field=(name,label,type="text",opts={})=>({name,label,type,...opts});
+function openModal(title,sub,fields,values={},saveLabel="Save record",onSave){
+ $("modalTitle").textContent=title;$("modalSub").textContent=sub;$("modalSave").textContent=saveLabel;
+ $("modalFields").innerHTML=fields.map(f=>{let val=values[f.name]??f.value??"";let required=f.required===false?"":"required";let full=f.full?"full":"";if(f.type==="select")return `<div class="${full}"><label>${esc(f.label)}${f.required===false?"":" *"}</label><select name="${f.name}" ${required}>${(f.options||[]).map(o=>`<option value="${esc(o.value)}" ${String(val)===String(o.value)?"selected":""}>${esc(o.label)}</option>`).join("")}</select></div>`;return `<div class="${full}"><label>${esc(f.label)}${f.required===false?"":" *"}</label><input name="${f.name}" type="${f.type||"text"}" value="${esc(val)}" ${required} ${f.min!==undefined?`min="${f.min}"`:""} ${f.step?`step="${f.step}"`:""} placeholder="${esc(f.placeholder||"")}"></div>`}).join("");
+ currentModalSave=onSave;$("modalBackdrop").classList.add("show");
+}
+function closeModal(){$("modalBackdrop").classList.remove("show");currentModalSave=null}
+$("modalCancel").onclick=closeModal;
+$("modalForm").onsubmit=e=>{e.preventDefault();if(!currentModalSave)return;const obj=Object.fromEntries(new FormData(e.target).entries());currentModalSave(obj);closeModal()};
+function studentFields(){return [field("studentId","Student / Enrollment ID"),field("name","Full Name"),field("department","Department"),field("course","Course / Programme"),field("year","Semester","select",{options:Array.from({length:6},(_,i)=>({value:String(i+1),label:"Semester "+(i+1)}))}),field("email","Email","email",{required:false}),field("dob","Date of Birth","date",{required:false}),field("photo","Photo URL (optional)","url",{required:false,full:true})]}
+function addStudent(){openModal("Register Student","Create a library member profile.",[field("studentId","Student / Enrollment ID"),field("name","Full Name"),field("department","Department"),field("course","Course / Programme"),field("year","Semester","select",{options:Array.from({length:6},(_,i)=>({value:String(i+1),label:"Semester "+(i+1)}))}),field("email","Email","email",{required:false}),field("dob","Date of Birth","date",{required:false}),field("photo","Photo URL (optional)","url",{required:false,full:true})],{}, "Register Student",v=>{if(data.students.some(s=>s.studentId.toLowerCase()===v.studentId.toLowerCase()))return notify("That student ID is already registered.");data.students.push({...v,id:id("STU")});persist();notify("Student registered successfully.")})}
+function editStudent(sid){let s=studentBy(sid);if(!s)return;openModal("Edit Student","Update student details.",[field("studentId","Student / Enrollment ID"),field("name","Full Name"),field("department","Department"),field("course","Course / Programme"),field("year","Semester","select",{options:Array.from({length:6},(_,i)=>({value:String(i+1),label:"Semester "+(i+1)}))}),field("email","Email","email",{required:false}),field("dob","Date of Birth","date",{required:false}),field("photo","Photo URL (optional)","url",{required:false,full:true})],s,"Save Changes",v=>{if(data.students.some(x=>x.id!==sid&&x.studentId.toLowerCase()===v.studentId.toLowerCase()))return notify("That student ID is already in use.");Object.assign(s,v);persist();notify("Student details updated.")})}
+function deleteStudent(sid){if(data.transactions.some(t=>t.studentId===sid&&!t.returnDate))return notify("Cannot delete: this student has an active book issue.");if(confirm("Delete this student record? Transaction history will remain.")){data.students=data.students.filter(s=>s.id!==sid);persist();notify("Student deleted.")}}
+function showId(sid){const s=studentBy(sid);if(!s)return;idStudent=s;$("idCardHolder").innerHTML=`<div class="id-card"><div class="id-head"><div class="id-emblem">LC</div><div><b>COLLEGE LIBRARY</b><small>LIBRARY MEMBERSHIP CARD</small></div></div><div class="id-body"><div class="id-photo">${s.photo?`<img src="${esc(s.photo)}" alt="Student photo" onerror="this.remove()">`:esc((s.name||"?").slice(0,1).toUpperCase())}</div><div class="id-info"><h3>${esc(s.name)}</h3><p><b>ID:</b> ${esc(s.studentId)}</p><p><b>Dept:</b> ${esc(s.department||"—")}</p><p><b>Course:</b> ${esc(s.course||"—")}</p><p><b>Year:</b> ${esc(s.year||"—")}</p></div></div><div class="id-footer"><span>Valid for registered student</span><span>LIBRARY • ${new Date().getFullYear()}</span></div></div>`;$("idBackdrop").classList.add("show")}
+function editBook(bid){let b=bookBy(bid);if(!b)return;openBookModal(b)}
+function openBookModal(existing=null){
+ const b=existing||{};const fields=[field("title","Book Title"),field("author","Author Name"),field("department","Department"),field("category","Category / Subject","text",{required:false}),field("publisher","Publisher / Place","text",{required:false}),field("accessionNo","Accession Number","text",{required:false}),field("semester","Semester","select",{required:false,options:[{value:"",label:"Not specified"},...Array.from({length:6},(_,i)=>({value:String(i+1),label:"Semester "+(i+1)}))]}),field("isbn","ISBN","text",{required:false}),field("quantity","Total Quantity","number",{min:0}),field("shelf","Shelf / Rack","text",{required:false})];
+ openModal(existing?"Edit Book":"Add New Book","Enter book details and the total number of copies.",fields,{title:b.title,author:b.author,department:b.department,category:b.category,publisher:b.publisher,accessionNo:b.accessionNo,semester:b.semester,isbn:b.isbn,quantity:b.quantity??1,shelf:b.shelf},existing?"Save Changes":"Add Book",v=>{v.quantity=Number(v.quantity);if(existing){let borrowed=activeCount(existing.id);if(v.quantity<borrowed)return notify(`Quantity cannot be below ${borrowed} currently issued copies.`);Object.assign(existing,v)}else{data.books.push({...v,id:id("BK")})}persist();notify(existing?"Book updated.":"Book added to catalogue.")})
+}
+function deleteBook(bid){if(activeCount(bid)>0)return notify("Cannot delete a book with active issues.");if(confirm("Delete this book from the catalogue?")){data.books=data.books.filter(b=>b.id!==bid);persist();notify("Book deleted.")}}
+$("quickAdd").onclick=()=>openBookModal();$("addBookBtn").onclick=()=>openBookModal();$("addStudentBtn").onclick=addStudent;
+["studentSearch","bookSearch","deptFilter","historySearch","historyStatus","reportDept"].forEach(k=>$(k).addEventListener("input",()=>{renderStudents();renderBooks();renderHistory();renderReports()}));
+$("issueDate").value=todayISO();$("dueDate").value=addDays(todayISO(),14);$("actualReturnDate").value=todayISO();
+$("issueForm").onsubmit=e=>{e.preventDefault();let studentId=$("issueStudent").value,bookId=$("issueBook").value,issueDate=$("issueDate").value,dueDate=$("dueDate").value;if(!studentBy(studentId)||!bookBy(bookId))return notify("Choose a valid student and book.");if(!available(bookBy(bookId)))return notify("No copies of this book are currently available.");if(dueDate<issueDate)return notify("Due date cannot be earlier than issue date.");data.transactions.push({id:id("TXN"),studentId,bookId,issueDate,dueDate,returnDate:"",fine:0,issuedBy:$("issuedBy").value.trim()});persist();e.target.reset();$("issueDate").value=todayISO();$("dueDate").value=addDays(todayISO(),14);notify("Book issued successfully.")};
+function previewFine(){let t=data.transactions.find(x=>x.id===$("returnTxn").value);if(!t){$("finePreview").textContent="Select an active issue to preview late fine.";return}let date=$("actualReturnDate").value||todayISO(),days=overdueDays({...t,returnDate:date},date),rate=Number($("fineRate").value||0);$("finePreview").textContent=days?`${days} late day(s) × ${money(rate)} = ${money(days*rate)} fine.`:"No late fine. Return is on or before the due date."}
+$("returnTxn").onchange=previewFine;$("actualReturnDate").onchange=previewFine;$("fineRate").oninput=previewFine;
+$("returnForm").onsubmit=e=>{e.preventDefault();let t=data.transactions.find(x=>x.id===$("returnTxn").value);if(!t)return notify("Select an active issue.");let rd=$("actualReturnDate").value;if(rd<t.issueDate)return notify("Return date cannot be earlier than issue date.");t.returnDate=rd;t.fine=overdueDays(t,rd)*Number($("fineRate").value||0);persist();e.target.reset();$("actualReturnDate").value=todayISO();$("fineRate").value=10;previewFine();notify(`Return recorded. Fine: ${money(t.fine)}.`)};
+$("idClose").onclick=$("idClose2").onclick=()=>$("idBackdrop").classList.remove("show");
+$("printId").onclick=()=>{if(!idStudent)return;const s=idStudent;const card=$("idCardHolder").innerHTML;const w=window.open("","_blank","width=500,height=600");if(!w)return notify("Allow pop-ups to print the ID card.");w.document.write(`<!doctype html><html><head><title>Library ID Card</title><style>body{font:14px Arial;padding:25px;display:grid;place-items:start center}.id-card{width:340px;padding:18px;border-radius:15px;background:linear-gradient(135deg,#0d2341,#1c4c7c);border:1px solid #5a8ec2;color:white;box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}.id-head{display:flex;align-items:center;gap:9px;border-bottom:1px solid #ffffff33;padding-bottom:12px}.id-emblem{width:35px;height:35px;border-radius:10px;background:#d8f7ff;color:#0c2c4b;display:grid;place-items:center;font-weight:900}.id-head small{display:block;color:#c5d8ed;font-size:9px;letter-spacing:1px}.id-body{display:flex;gap:13px;align-items:center;padding:17px 0}.id-photo{width:74px;height:87px;border-radius:8px;background:#d4e4f5;color:#264769;display:grid;place-items:center;font-size:24px;overflow:hidden}.id-photo img{width:100%;height:100%;object-fit:cover}.id-info h3{margin:0 0 4px;font-size:17px}.id-info p{margin:3px 0;color:#d4e3f4;font-size:10px}.id-footer{border-top:1px solid #ffffff33;padding-top:10px;display:flex;justify-content:space-between;font-size:9px;color:#d1e2f4}</style></head><body>${card}<script>window.onload=()=>window.print()<\/script></body></html>`);w.document.close()};
+$("exportHistory").onclick=()=>downloadCSV("library-issue-history.csv",historyExportRows());
+$("exportReport").onclick=()=>{const dept=$("reportDept").value;downloadCSV("library-department-report.csv",[["Department","Titles","Total Copies","Available Copies","Issued Copies"],...([...new Set(data.books.map(b=>b.department||"General"))].filter(d=>!dept||d===dept).map(d=>{let bs=data.books.filter(b=>(b.department||"General")===d),total=bs.reduce((s,b)=>s+Number(b.quantity),0),av=bs.reduce((s,b)=>s+available(b),0);return[d,bs.length,total,av,total-av]}))])};
+function historyExportRows(){return [["Transaction ID","Student ID","Student Name","Department","Book ID","Book Title","Author","Issue Date","Due Date","Return Date","Fine","Status"],...data.transactions.map(t=>{let s=studentBy(t.studentId),b=bookBy(t.bookId);return[t.id,s?.studentId||"",s?.name||"",s?.department||"",b?.id||"",b?.title||"",b?.author||"",t.issueDate,t.dueDate,t.returnDate,t.fine,txnStatus(t)]})]}
+function downloadCSV(name,rows){const csv=rows.map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\r\n");const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8;"}));a.download=name;a.click();URL.revokeObjectURL(a.href)}
+/* Optional Google Apps Script sync. JSONP avoids browser CORS preflight. Local mode remains usable until URL is configured. */
+function apiCall(action,payload={}){return new Promise((resolve,reject)=>{if(!API_URL){resolve(null);return}const cb="libraCb"+Math.random().toString(36).slice(2);const script=document.createElement("script");const timer=setTimeout(()=>{cleanup();reject(new Error("Google Sheets connection timed out"))},15000);function cleanup(){clearTimeout(timer);delete window[cb];script.remove()}window[cb]=res=>{cleanup();res&&res.ok?resolve(res):reject(new Error(res?.error||"Sync failed"))};const params=new URLSearchParams({action,callback:cb,payload:JSON.stringify(payload)});script.src=API_URL+"?"+params.toString();script.onerror=()=>{cleanup();reject(new Error("Could not reach Apps Script"))};document.head.appendChild(script)})}
+async function syncFromCloud(){if(!API_URL)return;try{const r=await apiCall("getAll");if(r?.data){data=r.data;localStorage.setItem(STORE_KEY,JSON.stringify(data));renderAll();$("connectionText").textContent="Connected to Google Sheets · automatic Drive backup can be enabled.";notify("Google Sheets data loaded.")}}catch(e){notify("Cloud sync failed: "+e.message)}}
+async function cloudSave(){if(!API_URL)return;try{await fetch(API_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action:"saveAll",data})});$("connectionText").textContent="Connected to Google Sheets · save sync sent."}catch(e){notify("Cloud save failed. Local changes remain saved: "+e.message)}}
+const localPersist=persist;persist=function(){localStorage.setItem(STORE_KEY,JSON.stringify(data));renderAll();if(API_URL)cloudSave()};
+renderAll();
+if(API_URL)syncFromCloud();
+
+// Browser-only password gate for GitHub Pages testing (not server-side security).
+const AUTH_KEY="manas_library_password_hash_v1";
+const SESSION_KEY="manas_library_session_v1";
+async function hashPassword(value){
+  if(window.crypto && crypto.subtle){
+    const bytes=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(value));
+    return Array.from(new Uint8Array(bytes)).map(x=>x.toString(16).padStart(2,"0")).join("");
+  }
+  // Fallback for local test environments that do not expose Web Crypto.
+  let h=2166136261;for(let i=0;i<value.length;i++){h^=value.charCodeAt(i);h=Math.imul(h,16777619)}return "fallback-"+(h>>>0).toString(16);
+}
+function setAuthMode(mode){
+  $("authForm").dataset.mode=mode;
+  $("authError").textContent="";
+  $("authPassword").value="";$("authConfirm").value="";
+  const setup=mode==="setup";
+  $("authTitle").textContent=setup?"Set your password":mode==="change"?"Change password":"Library Login";
+  $("authSubtitle").textContent=setup?"Create a password for this browser before using the library system.":mode==="change"?"Choose a new password for future logins.":"Enter your password to open the library system.";
+  $("confirmPasswordWrap").classList.toggle("hidden",!setup&&mode!=="change");
+  $("authSubmit").textContent=setup?"Set Password & Continue":mode==="change"?"Update Password":"Log in";
+}
+function showAuth(mode){setAuthMode(mode);$("authScreen").classList.remove("hidden")}
+function hideAuth(){$("authScreen").classList.add("hidden")}
+function initAuth(){
+  if(!localStorage.getItem(AUTH_KEY)){showAuth("setup");return}
+  if(sessionStorage.getItem(SESSION_KEY)==="yes"){hideAuth();return}
+  showAuth("login");
+}
+$("authForm").addEventListener("submit",async e=>{
+  e.preventDefault();const mode=e.currentTarget.dataset.mode,pw=$("authPassword").value;
+  if(pw.length<6){$("authError").textContent="Password must be at least 6 characters.";return}
+  if(mode==="setup"||mode==="change"){
+    if(pw!==$("authConfirm").value){$("authError").textContent="Passwords do not match.";return}
+    localStorage.setItem(AUTH_KEY,await hashPassword(pw));sessionStorage.setItem(SESSION_KEY,"yes");
+    hideAuth();notify(mode==="setup"?"Password created successfully.":"Password changed successfully.");
+    return;
+  }
+  if((await hashPassword(pw))!==localStorage.getItem(AUTH_KEY)){$("authError").textContent="Incorrect password. Please try again.";return}
+  sessionStorage.setItem(SESSION_KEY,"yes");hideAuth();
+});
+$("logoutBtn").onclick=()=>{sessionStorage.removeItem(SESSION_KEY);showAuth("login")};
+$("changePasswordBtn").onclick=()=>{if(!sessionStorage.getItem(SESSION_KEY))return showAuth("login");setAuthMode("change");$("authScreen").classList.remove("hidden")};
+$("exportDataBtn").onclick=()=>{
+  const blob=new Blob([JSON.stringify({app:"Manas College Pithoragarh Smart Library",version:1,exportedAt:new Date().toISOString(),data},null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="manas-library-backup.json";a.click();URL.revokeObjectURL(a.href);notify("JSON backup exported.");
+};
+$("importDataBtn").onclick=()=>$("importDataFile").click();
+$("importDataFile").onchange=async e=>{
+  const file=e.target.files&&e.target.files[0];if(!file)return;
+  try{
+    const parsed=JSON.parse(await file.text()),incoming=parsed.data||parsed;
+    if(!incoming||!Array.isArray(incoming.books)||!Array.isArray(incoming.students)||!Array.isArray(incoming.transactions))throw new Error("This JSON file is not a compatible library backup.");
+    if(!confirm("Import this backup? Current browser data will be replaced."))return;
+    data={students:incoming.students,books:incoming.books,transactions:incoming.transactions};
+    persist();notify("Library data imported successfully.");
+  }catch(err){notify("Import failed: "+err.message)}
+  finally{e.target.value=""}
+};
+
+initAuth();
+</script>
+</body></html>
